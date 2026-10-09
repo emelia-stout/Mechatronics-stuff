@@ -1,0 +1,29 @@
+#include "xc.h"
+#pragma config FNOSC = FRC //edit if it needs a different timer
+
+//goals of design:  driving forward in a straight line, 
+//making a roughly 90-degree turn, driving forward again, and making a roughly 180-degree turn, and driving forward again.
+//use half steps
+
+int main(void){
+  OC1RS= //Period
+  OC1R= //Duty cycle
+while (1){
+
+//set each of these to specific timer values so we can get it to do what it needs to
+//first one needs both motors to be moving
+//second step needs one motor off, the other on for a certain number of time
+//then both motors go forward
+//then one motor off and other on for a long time
+//repeat everything
+
+ if (TMR1<2*3906//can change these values){
+            OC1R = OC1RS*.33;//duty cycle percents
+        }
+        if (TMR1>2*3906){
+            OC1R = OC1RS*.66;
+        }
+        if (TMR1>5*3906){
+            OC1R = OC1RS*1;
+}
+}
